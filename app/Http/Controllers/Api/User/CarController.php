@@ -17,7 +17,7 @@ class CarController extends Controller
             $car->image = asset('storage/' . $car->image);
             return $car;
         });
-
+ 
         if ($car) {
             return ResponseFormatter::success($car, 'Data List Mobil Berhasil Diambil');
         } else {

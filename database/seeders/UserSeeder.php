@@ -15,6 +15,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
+        // pemisahan role. untuk mengisi tabel secara otomatis
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',

@@ -22,11 +22,13 @@ class MyOrderController extends Controller
         );
     }
 
+    // logika pembayaran
     public function processPaymentRent(Request $request)
     {
         $image = $request->file('image')->store('payment', 'public');
 
         $payment = Payment::create([
+        //    yang muncul di hasil
             'user_id' => Auth::user()->id,
             'transaction_id' => $request->transaction_id,
             'image' => $image,
@@ -34,7 +36,7 @@ class MyOrderController extends Controller
             'type' => $request->type,
         ]);
 
-
+        // status dia ambil dari hasil transaksi
         Transaction::where('id', $request->transaction_id)->update([
             'transaction_status' => 'WAITING'
         ]);

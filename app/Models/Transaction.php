@@ -26,6 +26,7 @@ class Transaction extends Model
         'transaction_status',
     ];
 
+    // relasi. 1 mobil bisa punya banyak transaksi di hasil postmannya
     public function car()
     {
         return $this->belongsTo(Car::class);

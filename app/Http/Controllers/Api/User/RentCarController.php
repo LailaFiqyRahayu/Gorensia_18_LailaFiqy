@@ -20,6 +20,7 @@ class RentCarController extends Controller
         $formated_date_2 = Carbon::parse($request->date_start);
         $total_days =  $formated_date_1->diffInDays($formated_date_2);
 
+        // jumlah hari dan harga
         $price = $car->price * $total_days;
         $image_sim = $request->file('image_sim')->store('sim', 'public');
 
@@ -41,6 +42,7 @@ class RentCarController extends Controller
 
         Car::where('id', $car->id)->update([
             'rented' => '1'
+            // rented 1 kalau sudah dirental
         ]);
 
 
